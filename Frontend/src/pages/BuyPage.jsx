@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "./Store";
+import API_URL from "./config";
+
+
 
 function BuyPage() {
   const { id } = useParams();
@@ -33,7 +36,7 @@ function BuyPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/order/add", {
+      const response = await fetch(`${API_URL}/order/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
